@@ -3,6 +3,22 @@
 	{
 		"selected_items":
 		[
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"font",
+				"font-size"
+			]
 		]
 	},
 	"buffers":
@@ -19,7 +35,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 476,
+				"buffer_size": 902,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -28,7 +44,7 @@
 			"file": "styles.css",
 			"settings":
 			{
-				"buffer_size": 54,
+				"buffer_size": 863,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -109,7 +125,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -146,15 +162,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 476,
+						"buffer_size": 902,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								456,
-								456
+								574,
+								574
 							]
 						],
 						"settings":
@@ -167,7 +183,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -176,15 +192,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 54,
+						"buffer_size": 863,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								54,
-								54
+								720,
+								720
 							]
 						],
 						"settings":
@@ -192,10 +208,10 @@
 							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
