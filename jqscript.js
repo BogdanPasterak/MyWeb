@@ -19,7 +19,7 @@ const myResize = () => {
 		document.getElementById("clock").removeAttribute("style");
 	}
 
-}
+};
 
 const hamburger = () => {
     const x = document.getElementsByClassName("nav_bar")[0];
@@ -28,5 +28,9 @@ const hamburger = () => {
     } else {
         x.className = "nav_bar";
     }
+
+};
+
+const clock = () => {
 
 };

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"bas",
+				"background-size"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
 				"cl",
 				"className"
 			],
@@ -69,11 +77,13 @@
 			}
 		},
 		{
+			"contents": "html {\n\tmargin: 0;\n\tpadding: 0;\n\theight: 100%\n}\n\nbody {\n\tmargin: auto;\n\tmax-width: 1270px;\n\tpadding: 0;\n\theight: 150%;\n\tmin-width: 300px;\n}\n\n#container {\n  margin-top: 75px;\n\twidth: 100%;\n\theight: 100%;\n  background-image: url(\"topography.svg\"),\n        linear-gradient(130deg, #f93d66, #6d47d9);\n  background-size: 300px, auto;\n}\n\nh1 {\n\tfont-family: 'Indie Flower', cursive;\n}\n\n/* navigation bar*/\n.nav_bar {\n  font-family: 'Indie Flower', cursive;\n\tfont-size: 2em;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  max-width: 1270px;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n  background-color: #333;\n}\n\n.nav_bar a {\n  float: left;\n  display: block;\n  color: white;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n}\n\n.nav_bar a:hover {\n    background-color: #111;\n    border-radius: 50px 0;\n}\n\n.nav_bar a:first-child {\n\tmargin-right: 60px;\n}\n\n.nav_bar #hamburger {\n\tdisplay: none;\n  position: absolute;\n  right: 100px;\n  top: 0;\n}\n\n#clock {\n  background-color: #f00;\n  position: fixed;\n  right: 0;\n  top: 0;\n  padding: 0;\n  margin: 0;\n  height: 75px;\n  width: 100px;\n}\n\n#clock:hover {\n  background-color: #111;\n  border-radius: 0;\n}\n\n\n/*800 px for nav bar*/\n@media screen and (max-width: 800px) {\n  .nav_bar a {display: none;}\n  .nav_bar a:first-child {display: block;}\n  .nav_bar #hamburger {\n    display: block;\n  }\n}\n\n@media screen and (max-width: 800px) {\n  .nav_bar.responsive {\n  }\n  .nav_bar.responsive a {\n    float: none;\n    display: block;\n    text-align: left;\n  }\n  .nav_bar.responsive a:first-child { margin-right: 100px; }\n}\n",
 			"file": "styles.css",
+			"file_size": 1576,
+			"file_write_time": 131610147736078199,
 			"settings":
 			{
-				"buffer_size": 1450,
-				"encoding": "UTF-8",
+				"buffer_size": 1576,
 				"line_ending": "Unix"
 			}
 		},
@@ -94,12 +104,24 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
-		"last_filter": "",
+		"height": 159.0,
+		"last_filter": "install",
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"color Sch",
+				"UI: Select Color Scheme"
+			],
+			[
+				"pac",
+				"Package Control: Add Repository"
+			]
 		],
-		"width": 0.0
+		"width": 461.0
 	},
 	"console":
 	{
@@ -119,6 +141,7 @@
 	},
 	"file_history":
 	[
+		"/home/bogdan/.config/sublime-text-3/Packages/User/ColorHighlighter.sublime-settings"
 	],
 	"find":
 	{
@@ -221,30 +244,37 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1450,
+						"buffer_size": 1576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1297,
-								1270
+								173,
+								173
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1173.0,
+						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 3,
 					"file": "jqscript.js",
@@ -282,7 +312,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 37.0
 	},
 	"layout":
 	{
@@ -293,11 +323,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
