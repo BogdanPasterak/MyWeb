@@ -3,7 +3,6 @@ let way = 1;
 let step = 0;
 let interval;
 let clear;
-let ctx;
 let change;
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -13,9 +12,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	initCanvas();
 
-	snake = new Snake(ctx);
+	snake = new Snake();
 
-	snake.start();
+
+	snake.start(50);
 
 
 	//initGame();
@@ -59,54 +59,32 @@ const initCanvas = () => {
 	c.width = (g.width & 0xFFFE) - 10 ;
 	c.height = (g.height & 0xFFFE) - 10 ;
 
-	ctx = c.getContext('2d');
+	const ctx = c.getContext('2d');
+
+	let point = new Point();
+	Point.setCTX(ctx);
+
+	// static method for static variable
 
 	ctx.beginPath();
 	ctx.strokeStyle = 'rgb(255, 0, 0)';
 	ctx.lineWidth = 2;
 	ctx.rect(1, 1, c.width - 2, c.height - 2);
 	ctx.stroke();
-	ctx.fillStyle = 'rgb(255, 0, 0)';
-	setPixel(9,4,ctx);
-	setPixel(9,5,ctx);
-	setPixel(9,6,ctx);
+	ctx.fillStyle = 'rgb(255, 255, 255)';
+	ctx.fillRect(2, 2, c.width - 4, c.height - 4);
 
+	
+	point.setXY(9, 1);
+	point.setColor('rgb(255, 0, 0)');
+	point.setXY(10, 1);
+	point.setColor('rgb(0, 255, 0)');
+	point.setXY(11, 1);
+	point.setColor('rgb(0, 0, 255)');
 
-
-};
-
-const initGame = () => {
-	snake = [];
-	for (let i = 3; i > 0; i--) {
-		snake.push({x: i, y: 1});
-	}
-	interval = setInterval(drawSnake, 250);
-
-
-	//point.setX(snake[0].x);
-	//console.log(point.toString());
 };
 
 const drawSnake = () => {
-	//const ctx = document.getElementById('canvas').getContext('2d');
-
-	// stop
-	if (step > 1000) {
-		//console.log(getPixel(1, 2, ctx));
-		clearInterval(interval);
-		console.log("stop");
-	}
-
-
-	// erase till
-	ctx.fillStyle = 'rgb(255, 255, 255)';
-	setPixel(snake[snake.length - 1].x, snake[snake.length - 1].y, ctx);
-	// move snake
-	for(let i = snake.length - 1; i > 0; i--) {
-		snake[i].x = snake[i - 1].x;
-		snake[i].y = snake[i - 1].y;
-	}
-
 	// move head
 	position(snake[0]);
 	
@@ -124,18 +102,7 @@ const drawSnake = () => {
 	if (step % 50 == 0) {
 		snake.push({x: snake[snake.length - 1].x, y: snake[snake.length - 1].y});
 	}
-
-
-	// draw snake
-	ctx.fillStyle = 'rgb(0, 0, 0)';
-	setPixel(snake[0].x, snake[0].y, ctx);
-	ctx.fillStyle = 'rgb(128, 128, 128)';
-	for(let i = 1; i < snake.length; i++) {
-		setPixel(snake[i].x, snake[i].y, ctx);
-	}
-
-	step++;
-
+	
 };
 
 const whereNext = () => {
