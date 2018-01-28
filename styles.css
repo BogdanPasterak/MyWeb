@@ -6,12 +6,26 @@ html {
 
 body {
   font-family: 'Indie Flower', cursive;
-  text-indent: 30px;
 	margin: auto;
 	max-width: 1270px;
 	padding: 0;
 	height: 150%;
 	min-width: 300px;
+}
+
+img {
+  text-indent: 0;
+  width: 100%;
+}
+
+h1, h2 {
+  text-indent: 30px;
+}
+
+.img {
+  width: 100%;
+  min-height: 100px;
+  margin: 5px;
 }
 
 #container {
