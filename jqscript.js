@@ -17,6 +17,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		snake = new Snake();
 
+		for(let i = 0; i<1000; i++){
+			Point.setRandFood();
+			//Snake.randFood();
+		}
+
+		console.log(Snake.point.toString());
+
 
 		snake.start(30);
 	

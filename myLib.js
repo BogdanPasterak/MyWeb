@@ -10,10 +10,18 @@ const Point = function (point) {
     this.y = point.y;
   }
   Point.ctx;  // Static variable
+  Point.px;
+  Point.py;
   // Static method
   Point.setCTX = function(ctx) {
     Point.ctx = ctx;
   }
+  Point.setRandFood = function(){
+    Point.px = (Math.random()*((Point.ctx.canvas.clientWidth>>1)-2)+1)|0;
+    Point.py = (Math.random()*((Point.ctx.canvas.clientHeight>>1)-2)+1)|0;
+    Point.ctx.fillStyle = 'rgb(0, 255, 0)';
+    Point.ctx.fillRect(Point.px << 1, Point.py << 1, 2, 2);
+ }
 };
 Point.prototype.getX = function() {
   return this.x;
@@ -50,12 +58,6 @@ Point.prototype.getColor = function() {
   const data = Point.ctx.getImageData(this.x << 1, this.y << 1, 1, 1);
   return 'rgb(' + data.data[0] + ', ' + data.data[1] + ', ' + data.data[2] + ')';
 }
-Point.prototype.getSetColor = function(color) {
-  let cell = this.get();
-  let back = $(cell).css('background-color');
-  $(cell).css('background-color', color);
-  return back;
-};
 
 Point.prototype.toString = function() {
   return 'Point {x: ' + this.x + ', y: ' + this.y + ', ctx: ' + Point.ctx + '} ';
@@ -98,7 +100,14 @@ const Snake = function() {
     body: 'rgb(128, 128, 128)',
     hurdle: 'rgb(255, 0, 0)',
     food: 'rgb(0, 255, 0)',
-    none: 'rgb(255, 255, 255)'};
+    none: 'rgb(255, 255, 255)',
+    over: 'undefined'};
+  Snake.point = new Point();
+
+  Snake.randFood = function() {
+    Snake.point.setXY((((Math.random()*500)+1) | 0) , (((Math.random()*500)+1) | 0));
+    Snake.point.setColor('rgb(0, 255, 0)');
+  }
 
   // set 3 parts of body
   for (let i = 0; i < 3; i++) {
@@ -162,13 +171,14 @@ Snake.prototype.draw = function() {
 
 
   this.where();
+  this.front(this.head);
 
   this.sees.f = this.head.getColor();
 
   // step on ...
   if (this.sees.f != Snake.see.none) {
     if (this.sees.f == Snake.see.food) {
-      console.log('mniam  rosne');
+      //console.log('mniam  rosne');
       this.body.push(new Point(this.body[this.body.length-1]));
     } else if (this.sees.f == Snake.see.hurdle) {
       console.log("Snake died on hurdle");
@@ -211,7 +221,7 @@ Snake.prototype.where = function() {
 
 
   if (this.sees.f == Snake.see.hurdle) {
-    console.log('zobaczył przeszkode przed');
+    //console.log('zobaczył przeszkode przed');
     if (this.sees.l == Snake.see.hurdle) {
       this.way = ++this.way & 7;
     } else if (this.sees.r == Snake.see.hurdle) {
@@ -219,47 +229,41 @@ Snake.prototype.where = function() {
     }
     // w prawo lub lewo
   } else if (this.sees.f == Snake.see.food) {
-    console.log('jedzenie !');
+    //console.log('jedzenie !');
   } else if (this.sees.f == Snake.see.none) {
     if (this.sees.l == Snake.see.food) {
-      console.log('jedzenie po lewej !');
+      //console.log('jedzenie po lewej !');
       this.way = --this.way & 7;
     } else if (this.sees.r == Snake.see.food) {
-    console.log('jedzenie po prawej!');
+      //console.log('jedzenie po prawej!');
       this.way = ++this.way & 7;
     } else if (this.sees.ff == Snake.see.hurdle) {
-      console.log('daleko przeszkoda !!!');
+      //console.log('daleko przeszkoda !!!');
       if (this.sees.l == Snake.see.hurdle) {
-        console.log('jade w prawo !');
+        //console.log('jade w prawo !');
         this.way = ++this.way & 7;
       } else if (this.sees.r == Snake.see.hurdle) {
-        console.log('jade w lewo !');
+        //console.log('jade w lewo !');
           this.way = --this.way & 7;
-      } else {
-        console.log('losuje skret');
+      } else if ((this.sees.fr == Snake.see.hurdle || this.sees.fr == Snake.see.over)
+        && (this.sees.fl == Snake.see.hurdle || this.sees.fl == Snake.see.over)) {
+        //console.log('widze daleko mur');
         if (Math.random() * 2 <1)
           this.way = ++this.way & 7;
         else
           this.way = --this.way & 7;
       }
-    } else if (this.sees.fff == Snake.see.hurdle) {
-      if (this.sees.l == Snake.see.hurdle) {
-        console.log('jade w prawo !');
+    }
+  } else {
+    if (Math.random() * 50 <1) {
+      console.log('Losowa zmiana');
+      if (Math.random() * 2 <1)
         this.way = ++this.way & 7;
-      } else if (this.sees.r == Snake.see.hurdle) {
-        console.log('jade w lewo !');
-          this.way = --this.way & 7;
-      } else {      
-       console.log('losuje skret bo fff przeszkoda');
-       if (Math.random() * 2 <1)
-         this.way = ++this.way & 7;
-       else
-         this.way = --this.way & 7;
-      }
+      else
+        this.way = --this.way & 7;
     }
   }
 
-  this.front(this.head);
 };
 
 Snake.prototype.front = function(point) {
