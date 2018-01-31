@@ -183,6 +183,9 @@ Snake.prototype.draw = function() {
     } else if (this.sees.f == Snake.see.hurdle) {
       console.log("Snake died on hurdle");
       this.stop();
+    } else if (this.sees.f == Snake.see.over) {
+      console.log("Snake died because escape");
+      this.stop();
     } else {
       console.log(this.head.getColor());
     }
@@ -221,49 +224,58 @@ Snake.prototype.where = function() {
 
 
   if (this.sees.f == Snake.see.hurdle) {
-    //console.log('zobaczył przeszkode przed');
+    // przeszkoda przed glowa musi skrecic;
+    // w prawo lub lewo inaczej utknie
     if (this.sees.l == Snake.see.hurdle) {
       this.way = ++this.way & 7;
     } else if (this.sees.r == Snake.see.hurdle) {
       this.way = --this.way & 7;
     }
-    // w prawo lub lewo
   } else if (this.sees.f == Snake.see.food) {
-    //console.log('jedzenie !');
+    // jest lakomy napewno zje, nie skreca!
   } else if (this.sees.f == Snake.see.none) {
+    // jesli nic nie widzi z przodu ...
     if (this.sees.l == Snake.see.food) {
-      //console.log('jedzenie po lewej !');
+      // jedzenie po lewej
       this.way = --this.way & 7;
     } else if (this.sees.r == Snake.see.food) {
-      //console.log('jedzenie po prawej!');
+      // jedzenie po prawej
       this.way = ++this.way & 7;
     } else if (this.sees.ff == Snake.see.hurdle) {
-      //console.log('daleko przeszkoda !!!');
+      // dwa kroki do przodu, przeszkoda
       if (this.sees.l == Snake.see.hurdle) {
-        //console.log('jade w prawo !');
+        // skosny mur jade w druga
         this.way = ++this.way & 7;
       } else if (this.sees.r == Snake.see.hurdle) {
-        //console.log('jade w lewo !');
+        // skosny mur jade w druga
           this.way = --this.way & 7;
       } else if ((this.sees.fr == Snake.see.hurdle || this.sees.fr == Snake.see.over)
         && (this.sees.fl == Snake.see.hurdle || this.sees.fl == Snake.see.over)) {
-        //console.log('widze daleko mur');
+        // mur na wprost losuje gdzie skrecic
         if (Math.random() * 2 <1)
           this.way = ++this.way & 7;
         else
           this.way = --this.way & 7;
       }
-    }
-  } else {
-    if (Math.random() * 50 <1) {
-      console.log('Losowa zmiana');
-      if (Math.random() * 2 <1)
-        this.way = ++this.way & 7;
-      else
-        this.way = --this.way & 7;
+    } else {
+      // nie ma przeszkod ani jedzenia, co dalej ?
+      if (Math.random() * 30 < 1) {
+        if (this.sees.l == Snake.see.hurdle) {
+          // moge tylko w prawo
+          this.way = ++this.way & 7;
+        } else if (this.sees.r == Snake.see.hurdle) {
+          // moge tylko w lewo
+          this.way = --this.way & 7;
+        } else {
+          // w jedna z dwoch
+          if (Math.random() * 2 <1)
+            this.way = ++this.way & 7;
+          else
+            this.way = --this.way & 7;
+        }
+      }
     }
   }
-
 };
 
 Snake.prototype.front = function(point) {

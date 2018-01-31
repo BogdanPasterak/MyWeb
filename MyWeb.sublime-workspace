@@ -154,7 +154,7 @@
 			"file": "jqscript.js",
 			"settings":
 			{
-				"buffer_size": 1991,
+				"buffer_size": 2114,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -163,16 +163,8 @@
 			"file": "myLib.js",
 			"settings":
 			{
-				"buffer_size": 7429,
+				"buffer_size": 7662,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": " if ((this.sees.fr == Snake.see.hurdle || this.sees.fr == Snake.see.over)\n        && (this.sees.fl == Snake.see.hurdle || this.sees.fl == Snake.see.over)) ",
-			"settings":
-			{
-				"buffer_size": 155,
 				"line_ending": "Unix"
 			}
 		}
@@ -295,7 +287,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -401,15 +393,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1991,
+						"buffer_size": 2114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								282,
-								282
+								354,
+								354
 							]
 						],
 						"settings":
@@ -417,10 +409,10 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -429,15 +421,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7429,
+						"buffer_size": 7662,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6154,
-								6154
+								4564,
+								4564
 							]
 						],
 						"settings":
@@ -447,37 +439,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3714.0,
+						"translation.y": 3841.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 155,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								155,
-								155
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
