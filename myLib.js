@@ -22,6 +22,12 @@ const Point = function (point) {
     Point.ctx.fillStyle = 'rgb(0, 255, 0)';
     Point.ctx.fillRect(Point.px << 1, Point.py << 1, 2, 2);
  }
+  Point.setRandHurdle = function(){
+    Point.px = (Math.random()*((Point.ctx.canvas.clientWidth>>1)-2)+1)|0;
+    Point.py = (Math.random()*((Point.ctx.canvas.clientHeight>>1)-2)+1)|0;
+    Point.ctx.fillStyle = 'rgb(255, 0, 0)';
+    Point.ctx.fillRect(Point.px << 1, Point.py << 1, 2, 2);
+ }
 };
 Point.prototype.getX = function() {
   return this.x;
@@ -102,12 +108,6 @@ const Snake = function() {
     food: 'rgb(0, 255, 0)',
     none: 'rgb(255, 255, 255)',
     over: 'undefined'};
-  Snake.point = new Point();
-
-  Snake.randFood = function() {
-    Snake.point.setXY((((Math.random()*500)+1) | 0) , (((Math.random()*500)+1) | 0));
-    Snake.point.setColor('rgb(0, 255, 0)');
-  }
 
   // set 3 parts of body
   for (let i = 0; i < 3; i++) {
@@ -230,7 +230,13 @@ Snake.prototype.where = function() {
       this.way = ++this.way & 7;
     } else if (this.sees.r == Snake.see.hurdle) {
       this.way = --this.way & 7;
-    }
+    } else {
+      // losowo skret
+      if (Math.random() * 2 <1)
+        this.way = ++this.way & 7;
+      else
+        this.way = --this.way & 7;
+      }
   } else if (this.sees.f == Snake.see.food) {
     // jest lakomy napewno zje, nie skreca!
   } else if (this.sees.f == Snake.see.none) {
@@ -266,8 +272,9 @@ Snake.prototype.where = function() {
         } else if (this.sees.r == Snake.see.hurdle) {
           // moge tylko w lewo
           this.way = --this.way & 7;
-        } else {
-          // w jedna z dwoch
+        } else if (!(this.sees.fr==Snake.see.hurdle || this.sees.fr==Snake.see.over)
+        && !(this.sees.fl==Snake.see.hurdle || this.sees.fl==Snake.see.over)) {
+          // w jedna z dwoch, dalej terz nie ma przeszkod
           if (Math.random() * 2 <1)
             this.way = ++this.way & 7;
           else

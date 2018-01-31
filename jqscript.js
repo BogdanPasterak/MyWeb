@@ -19,10 +19,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		for(let i = 0; i<1000; i++){
 			Point.setRandFood();
+			if ( i % 2 == 0 )
+				Point.setRandHurdle();
 			//Snake.randFood();
 		}
 
-		console.log(Snake.point.toString());
+		//console.log(Snake.point.toString());
 
 
 		snake.start(30);
@@ -85,6 +87,7 @@ const initCanvas = () => {
 	ctx.fillStyle = 'rgb(255, 255, 255)';
 	ctx.fillRect(2, 2, c.width - 4, c.height - 4);
 
+/*
 	
 	point.setXY(9, 1);
 	point.setColor('rgb(255, 0, 0)');
@@ -98,7 +101,7 @@ const initCanvas = () => {
 	point.setColor('rgb(0, 255, 0)');
 	point.setXY(16, 10);
 	point.setColor('rgb(0, 255, 0)');
-
+*/
 
 };
 
