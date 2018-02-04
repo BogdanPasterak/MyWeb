@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"min",
-				"min-height"
+				"get",
+				"getSecounds"
 			],
 			[
 				"ge",
-				"getElementById"
+				"getTime"
+			],
+			[
+				"clock",
+				"clockCanvas"
+			],
+			[
+				"setRand",
+				"setRandHurdle"
+			],
+			[
+				"min",
+				"min-height"
 			],
 			[
 				"see",
@@ -18,10 +30,6 @@
 			[
 				"f",
 				"food"
-			],
-			[
-				"get",
-				"getColor"
 			],
 			[
 				"fill",
@@ -127,7 +135,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1033,
+				"buffer_size": 1094,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -136,7 +144,7 @@
 			"file": "my_works.html",
 			"settings":
 			{
-				"buffer_size": 922,
+				"buffer_size": 983,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -151,10 +159,13 @@
 			}
 		},
 		{
+			"contents": "let snake;\nlet way = 1;\nlet step = 0;\nlet interval;\nlet clear;\nlet change;\nlet sec;\nlet clockCanvas;\nconst curentTime = {\n\ttime: 0,\n\tsec: 0,\n\tmin: 0,\n\thours: 0,\n\tampm: 0,\n};\n\ndocument.addEventListener(\"DOMContentLoaded\", function(event) {\n\n\twindow.addEventListener(\"resize\", myResize);\n\tmyResize();\n\n\tclockCanvas = document.getElementById('cl');\n\tclock();\n\n\n\n\tif (document.getElementById('container').contains(document.getElementById('game'))) {\n\n\t\tinitCanvas();\n\n\t\tsnake = new Snake();\n\n\t\tfor(let i = 0; i<1000; i++){\n\t\t\tPoint.setRandFood();\n\t\t\tif ( i % 2 == 0 )\n\t\t\t\tPoint.setRandHurdle();\n\t\t\t//Snake.randFood();\n\t\t}\n\n\t\t//console.log(Snake.point.toString());\n\n\n\t\tsnake.start(30);\n\t\n\t}\n\t//initGame();\n\n});\n\nconst myResize = () => {\n\n\tconst width = document.documentElement.clientWidth;\n\t//console.log(width);\n\tif (width > 1270) {\n\t\tconst offset = ((width - 1270) / 2) + 'px';\n\t\tdocument.getElementsByClassName(\"nav_bar\")[0].style = 'left: ' +  offset;\n\t\tdocument.getElementById(\"clock\").style = 'right: ' + offset;\n\t} else {\n\t\tdocument.getElementsByClassName(\"nav_bar\")[0].removeAttribute(\"style\");\n\t\tdocument.getElementById(\"clock\").removeAttribute(\"style\");\n\t}\n\n};\n\nconst hamburger = () => {\n    const x = document.getElementsByClassName(\"nav_bar\")[0];\n    if (x.className === \"nav_bar\") {\n        x.className += \" responsive\";\n    } else {\n        x.className = \"nav_bar\";\n    }\n\n};\n\nconst clock = () => {\n\n\tsetTimeout(clock, 1000);\n\n\tif ( sec == undefined ) sec = new Date().getSeconds();\n\telse sec++;\n\t\n\tlet s = sec % 60;\n\n\n\tconsole.log(s);\n\t//clockCanvas.style.backgrountColor = rgb(time%256, time%256, time%256);\n\t//if ( t %256 == 0) console.log('tik  ' + time%256);\n\n};\n\nconst initCanvas = () => {\n\n\tconst c = document.getElementById(\"canvas\");\n\n\tconst g = document.getElementById(\"game\").getBoundingClientRect();\n\n\tc.width = (g.width & 0xFFFE) - 10 ;\n\tc.height = (g.height & 0xFFFE) - 10 ;\n\n\tconst ctx = c.getContext('2d');\n\n\tlet point = new Point();\n\tPoint.setCTX(ctx);\n\n\t// static method for static variable\n\n\tctx.beginPath();\n\tctx.strokeStyle = 'rgb(255, 0, 0)';\n\tctx.lineWidth = 2;\n\tctx.rect(1, 1, c.width - 2, c.height - 2);\n\tctx.stroke();\n\tctx.fillStyle = 'rgb(255, 255, 255)';\n\tctx.fillRect(2, 2, c.width - 4, c.height - 4);\n\n/*\n\t\n\tpoint.setXY(9, 1);\n\tpoint.setColor('rgb(255, 0, 0)');\n\tpoint.setXY(11, 4);\n\tpoint.setColor('rgb(0, 255, 0)');\n\tpoint.setXY(11, 5);\n\tpoint.setColor('rgb(0, 255, 0)');\n\tpoint.setXY(12, 6);\n\tpoint.setColor('rgb(0, 255, 0)');\n\tpoint.setXY(14, 8);\n\tpoint.setColor('rgb(0, 255, 0)');\n\tpoint.setXY(16, 10);\n\tpoint.setColor('rgb(0, 255, 0)');\n*/\n\n};\n\n",
 			"file": "jqscript.js",
+			"file_size": 2518,
+			"file_write_time": 131621738461132601,
 			"settings":
 			{
-				"buffer_size": 2114,
+				"buffer_size": 2591,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -163,7 +174,7 @@
 			"file": "myLib.js",
 			"settings":
 			{
-				"buffer_size": 7662,
+				"buffer_size": 8673,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -259,7 +270,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -287,7 +298,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -296,15 +307,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1033,
+						"buffer_size": 1094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								527,
-								527
+								731,
+								837
 							]
 						],
 						"settings":
@@ -326,15 +337,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 922,
+						"buffer_size": 983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								830,
-								836
+								803,
+								803
 							]
 						],
 						"settings":
@@ -344,7 +355,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -363,8 +374,8 @@
 						"selection":
 						[
 							[
-								254,
-								254
+								644,
+								644
 							]
 						],
 						"settings":
@@ -375,16 +386,16 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 1275.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -393,15 +404,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2114,
+						"buffer_size": 2591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								354,
-								354
+								174,
+								174
 							]
 						],
 						"settings":
@@ -409,10 +420,10 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -421,15 +432,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7662,
+						"buffer_size": 8673,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4564,
-								4564
+								4880,
+								4880
 							]
 						],
 						"settings":
@@ -439,10 +450,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3841.0,
+						"translation.y": 1581.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

@@ -4,11 +4,24 @@ let step = 0;
 let interval;
 let clear;
 let change;
+let sec;
+let clockCanvas;
+const ct = {
+	date: 0,
+	sec: 0,
+	min: 0,
+	hours: 0,
+	ampm: 0,
+};
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
 	window.addEventListener("resize", myResize);
 	myResize();
+
+	clockCanvas = document.getElementById('cl');
+	clock();
+
 
 
 	if (document.getElementById('container').contains(document.getElementById('game'))) {
@@ -60,6 +73,32 @@ const hamburger = () => {
 };
 
 const clock = () => {
+
+	setTimeout(clock, 1000);
+
+	if ( ct.date == 0 ) {
+		ct.date = new Date();
+		ct.sec = ct.date.getSeconds();
+		ct.min = ct.date.getMinutes();
+		ct.hours = ct.date.getHours();
+	}
+	else {
+		ct.sec++;
+		if (ct.sec == 60) {
+			ct.sec = 0;
+			ct.min++;
+			if (ct.min == 60) {
+				ct.min = 0;
+				ct.hours = ++ct.hours % 24;
+			}
+		}
+	}
+	
+
+
+	//console.log(ct.hours + "  " + ct.min + "  " + ct.sec );
+	//clockCanvas.style.backgrountColor = rgb(time%256, time%256, time%256);
+	//if ( t %256 == 0) console.log('tik  ' + time%256);
 
 };
 

@@ -180,7 +180,12 @@ Snake.prototype.draw = function() {
     if (this.sees.f == Snake.see.food) {
       //console.log('mniam  rosne');
       this.body.push(new Point(this.body[this.body.length-1]));
-    } else if (this.sees.f == Snake.see.hurdle) {
+      Point.setRandFood();
+      if (this.step % 2 == 0) {
+        Point.setRandHurdle();
+        Point.setRandFood();
+      }
+   } else if (this.sees.f == Snake.see.hurdle) {
       console.log("Snake died on hurdle");
       this.stop();
     } else if (this.sees.f == Snake.see.over) {
