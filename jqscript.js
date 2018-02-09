@@ -5,13 +5,21 @@ let interval;
 let clear;
 let change;
 let sec;
-let clockCanvas;
+let ctxClock;
+let offImg;
+let onImg;
 const ct = {
 	date: 0,
 	sec: 0,
 	min: 0,
 	hours: 0,
-	ampm: 0,
+	ampm: false
+};
+const dec = {
+	pos1: false,
+	pos2: false,
+	pos4: false,
+	pos8: false
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -19,7 +27,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	window.addEventListener("resize", myResize);
 	myResize();
 
-	clockCanvas = document.getElementById('cl');
+	ctxClock = document.getElementById('cl').getContext('2d');
+	//document.getElementById("dupa").addEventListener("load", open);
+	offImg = document.getElementById("offImg");
+	onImg = document.getElementById("onImg");
+
+	//ctxClock.drawImage(offImg,0,0);
+
 	clock();
 
 
@@ -37,15 +51,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			//Snake.randFood();
 		}
 
-		//console.log(Snake.point.toString());
-
-
 		snake.start(30);
 	
 	}
 	//initGame();
 
 });
+
+const openFile = (file) => {
+	  console.log("czytam ---" + offImg);
+  var input = file.target;
+  var reader = new FileReader();
+
+  reader.onload = function(){
+    var dataURL = reader.result;
+    offImg = dataURL;
+	  console.log("czytam ---" + offImg);
+  };
+  reader.readAsDataURL(input.files[0]);
+};
+
+const open = (file) => {
+	console.log("jestem");
+};
 
 const myResize = () => {
 
@@ -76,23 +104,45 @@ const clock = () => {
 
 	setTimeout(clock, 1000);
 
+	ct.sec++;
+	//console.log(ct.sec);
+	if (ct.sec >= 60) ct.date = 0;
+
 	if ( ct.date == 0 ) {
 		ct.date = new Date();
 		ct.sec = ct.date.getSeconds();
 		ct.min = ct.date.getMinutes();
 		ct.hours = ct.date.getHours();
-	}
-	else {
-		ct.sec++;
-		if (ct.sec == 60) {
-			ct.sec = 0;
-			ct.min++;
-			if (ct.min == 60) {
-				ct.min = 0;
-				ct.hours = ++ct.hours % 24;
-			}
+		if (ct.hours >= 12) {
+			ct.ampm = true;
+			ct.hours %= 12;
 		}
+		else { ct.ampm = false; }
+		if (ct.hours == 0) {ct.hours = 12;}
+		console.log(ct);
 	}
+
+	decode(ct.sec % 10);
+	//if (ct.sec < 10) console.log(dec);
+	setCol(4);
+
+	decode(ct.sec / 10 | 0);
+	//if (ct.sec % 10 == 0) {console.log(dec); console.log("dziesiatka")}
+	setCol(3);
+
+	decode(ct.min % 10);
+	//if (ct.sec < 10) console.log(dec);
+	setCol(2);
+
+	decode(ct.min / 10 | 0);
+	//if (ct.sec % 10 == 0) {console.log(dec); console.log("dziesiatka")}
+	setCol(1);
+
+	decode(ct.hours);
+	//if (ct.sec < 10) console.log(dec);
+	setCol(0);
+
+
 	
 
 
@@ -100,6 +150,25 @@ const clock = () => {
 	//clockCanvas.style.backgrountColor = rgb(time%256, time%256, time%256);
 	//if ( t %256 == 0) console.log('tik  ' + time%256);
 
+};
+
+const decode = (number) => {
+	dec.pos1 = number & 1;
+	dec.pos2 = number >> 1 & 1;
+	dec.pos4 = number >> 2 & 1;
+	dec.pos8 = number >> 3 & 1;
+};
+const setCol = (nr) => {
+	let x = nr * 19 + (nr & 1) * 4 + 3;
+	let y = 3;
+	if (!(nr & 1))
+		(dec.pos8) ? ctxClock.drawImage(onImg,x,y) : ctxClock.drawImage(offImg,x,y);
+	y += 18;
+	(dec.pos4) ? ctxClock.drawImage(onImg,x,y) : ctxClock.drawImage(offImg,x,y);
+	y += 18;
+	(dec.pos2) ? ctxClock.drawImage(onImg,x,y) : ctxClock.drawImage(offImg,x,y);
+	y += 18;
+	(dec.pos1) ? ctxClock.drawImage(onImg,x,y) : ctxClock.drawImage(offImg,x,y);
 };
 
 const initCanvas = () => {
