@@ -151,7 +151,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1094,
+				"buffer_size": 1314,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -178,7 +178,7 @@
 			"file": "jqscript.js",
 			"settings":
 			{
-				"buffer_size": 4745,
+				"buffer_size": 4536,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -283,7 +283,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -320,28 +320,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1094,
+						"buffer_size": 1314,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								731,
-								837
+								645,
+								645
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -357,8 +358,8 @@
 						"selection":
 						[
 							[
-								1098,
-								1098
+								611,
+								611
 							]
 						],
 						"settings":
@@ -372,7 +373,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -403,7 +404,7 @@
 						"translation.y": 1530.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -418,15 +419,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4745,
+						"buffer_size": 4536,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3824,
-								3824
+								3353,
+								3353
 							]
 						],
 						"settings":
@@ -434,10 +435,10 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2499.0,
+						"translation.y": 2550.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -549,7 +550,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

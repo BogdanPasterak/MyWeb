@@ -58,23 +58,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 });
 
-const openFile = (file) => {
-	  console.log("czytam ---" + offImg);
-  var input = file.target;
-  var reader = new FileReader();
-
-  reader.onload = function(){
-    var dataURL = reader.result;
-    offImg = dataURL;
-	  console.log("czytam ---" + offImg);
-  };
-  reader.readAsDataURL(input.files[0]);
-};
-
-const open = (file) => {
-	console.log("jestem");
-};
-
 const myResize = () => {
 
 	const width = document.documentElement.clientWidth;

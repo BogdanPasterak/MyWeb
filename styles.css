@@ -24,8 +24,18 @@ h1, h2 {
 
 .img {
   width: 100%;
-  min-height: 100px;
-  margin: 5px;
+  height: 600px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+#star {
+  width: 424px;
+  height: 424px;
+  position: relative;
+  top: -475px;
+  animation-timing-function: linear;
+  animation: rotate 40s infinite;
 }
 
 #container {
@@ -110,6 +120,10 @@ h1, h2 {
   border-radius: 0;
 }
 
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
 
 /*800 px for nav bar*/
 @media screen and (max-width: 800px) {
