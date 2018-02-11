@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"mi",
+				"max-width"
+			],
+			[
 				"text-a",
 				"text-align"
 			],
@@ -155,7 +159,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1314,
+				"buffer_size": 1242,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -164,7 +168,7 @@
 			"file": "my_works.html",
 			"settings":
 			{
-				"buffer_size": 1431,
+				"buffer_size": 1289,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -173,7 +177,7 @@
 			"file": "styles.css",
 			"settings":
 			{
-				"buffer_size": 2296,
+				"buffer_size": 2761,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -182,7 +186,7 @@
 			"file": "jqscript.js",
 			"settings":
 			{
-				"buffer_size": 4181,
+				"buffer_size": 3733,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -287,7 +291,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -324,15 +328,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1314,
+						"buffer_size": 1242,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								645,
-								645
+								571,
+								571
 							]
 						],
 						"settings":
@@ -343,10 +347,10 @@
 							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -355,15 +359,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1431,
+						"buffer_size": 1289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1309,
-								1309
+								1099,
+								1099
 							]
 						],
 						"settings":
@@ -374,10 +378,10 @@
 							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 15.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -386,15 +390,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2296,
+						"buffer_size": 2761,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1620,
-								1620
+								330,
+								330
 							]
 						],
 						"settings":
@@ -405,7 +409,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1479.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -423,15 +427,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4181,
+						"buffer_size": 3733,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2055,
-								2055
+								2223,
+								2223
 							]
 						],
 						"settings":
@@ -439,10 +443,10 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1734.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -554,7 +558,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

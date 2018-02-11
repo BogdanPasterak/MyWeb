@@ -106,32 +106,20 @@ const clock = () => {
 	}
 
 	decode(ct.sec % 10);
-	//if (ct.sec < 10) console.log(dec);
 	setCol(4);
 
 	decode(ct.sec / 10 | 0);
-	//if (ct.sec % 10 == 0) {console.log(dec); console.log("dziesiatka")}
 	setCol(3);
 
 	decode(ct.min % 10);
-	//if (ct.sec < 10) console.log(dec);
 	setCol(2);
 
 	decode(ct.min / 10 | 0);
-	//if (ct.sec % 10 == 0) {console.log(dec); console.log("dziesiatka")}
 	setCol(1);
 
 	decode(ct.hours);
-	//if (ct.sec < 10) console.log(dec);
 	setCol(0);
 
-
-	
-
-
-	//console.log(ct.hours + "  " + ct.min + "  " + ct.sec );
-	//clockCanvas.style.backgrountColor = rgb(time%256, time%256, time%256);
-	//if ( t %256 == 0) console.log('tik  ' + time%256);
 
 };
 
